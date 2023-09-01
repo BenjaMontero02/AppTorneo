@@ -3,7 +3,7 @@
 // let nivel = ["e1", "e2", "e3"]
 // import { Gimnasta } from "../src/model/gimnasta.js";
 
-// for (let i = 0; i < 100; i++) {
+// for (let i = 0; i < 500; i++) {
 //     let element = club[Math.floor(Math.random() * club.length)]
 //     let element2 = categoria[Math.floor(Math.random() * categoria.length)]
 //     let element3 = nivel[Math.floor(Math.random() * nivel.length)]
@@ -23,7 +23,7 @@
 
 // async function create(gimnasta) {
 //     try {
-//         const prueba = await Gimnasta.create(gimnasta);
+//         await Gimnasta.create(gimnasta);
 //     } catch (error) {
 //     }
 // }

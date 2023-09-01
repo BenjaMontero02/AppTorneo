@@ -24,7 +24,7 @@
 
     if (ipAddress) {
     // Ruta al archivo next.config.js
-    const filePath = path.join('rivadavia2', 'next.config.js');
+    const filePath = path.join('rivadavia2', 'next.config.mjs');
     // Leer el contenido del archivo next.config.js
     const configFileContent = fs.readFileSync(filePath, 'utf-8');
 

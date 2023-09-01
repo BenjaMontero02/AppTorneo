@@ -53,6 +53,10 @@ export const Gimnasta = sequelize.define('gimnasta', {
         type: DataTypes.STRING,
         allowNull: false
     },
+    genero: {
+        type: DataTypes.STRING,
+        allowNull:false,
+    }
 },
 {
     timestamps: false,
