@@ -105,13 +105,38 @@ export const sumarTotal = async (req, res) => {
         const {categoria, nivel, genero} = req.body
         const gimnasta = await getGimnastasByCategoryAndLevel(categoria, nivel, "club", genero);
 
+        let valorSuelo = 0;
+        let valorViga = 0;
+        let valorSalto = 0;
+        let valorParalela = 0;
+
         gimnasta.forEach(async gimnasta => {
-            const valorSuelo = parseFloat(gimnasta.suelo);
-            const valorParalela = parseFloat(gimnasta.paralela);
-            const valorViga = parseFloat(gimnasta.viga);
-            const valorSalto = parseFloat(gimnasta.salto);
+            if(gimnasta.suelo == 0){
+                valorSuelo = 0;
+            }else{
+                valorSuelo = parseFloat(gimnasta.suelo);
+            }
+
+            if(gimnasta.paralela == 0){
+                valorParalela = 0;
+            }else{
+                valorParalela = parseFloat(gimnasta.paralela);
+            }
+
+            if(gimnasta.viga == 0){
+                valorViga = 0;
+            }else{
+                valorViga = parseFloat(gimnasta.viga);
+            }
+
+            if(gimnasta.salto == 0){
+                valorSalto = 0;
+            }else{
+                valorSalto = parseFloat(gimnasta.salto);
+            }
             const total = valorSuelo + valorParalela + valorViga + valorSalto
-            await gimnasta.update({total: total});
+            const totalRedondeado = total.toFixed(2);
+            await gimnasta.update({total: totalRedondeado});
         });
         const nueva = await getGimnastasByCategoryAndLevel(categoria, nivel, "total", genero);
         res.json(nueva);
